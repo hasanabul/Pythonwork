@@ -1,0 +1,73 @@
+#Create cities abbreviation
+Cities = {
+ 'Greater London': 'GL',
+ 'Manchester': 'MC',
+ 'Birmingham': 'BR',
+ 'Leeds': 'LE',
+ 'Nottingham': 'NO'
+}
+ 
+ #Create boroughs with cities
+Boroughs = {
+ 'GL': 'Islington',
+ 'GL': 'Hackney',
+ 'LE': 'Walton'
+}
+ 
+Boroughs['NO'] = 'Tower Hamlets'
+Boroughs['MC'] = 'Bromley' 
+#Print out some cities 
+print '_'*10
+print "England has many boroughs: ", Boroughs['NO']
+print "or ", Boroughs['MC']
+print "These two are not the best boroughs"
+print'_'*10
+print "Leeds abbreviation is:", Cities['Leeds']
+print "Nottingham's abbreviation is:", Cities['Nottingham']
+# do it by using the state then cities dict
+print'_'*10
+print "Greater London: ", Boroughs[Cities['Greater London']]
+print "Greater London: ", Boroughs[Cities['Greater London']]# prints hackney twice
+print "Leeds: ", Boroughs[Cities['Leeds']]
+#print every cities abbreviation
+#the below did not work - yet the one underworked
+#print '_' * 10
+#for city, abbrev in Cities.item():
+# print "%s is abbreviated %s" % (city, abbrev)
+ 
+print '-' * 10
+for city, abbrev in Cities.items():
+    print "%s is abbreviated %s" % (city, abbrev)
+ #The below did not work either,had to copy and paste from the site
+#print '_' * 10
+#for abbrev, Boroughs in Boroughs.item():
+ #print "s is has the boroughs %s" % (abbrev, Boroughs)
+ 
+print '-' * 10
+for abbrev, Boroughs in Boroughs.items():
+    print "%s has the Boroughs %s" % (abbrev, Boroughs)
+ 
+ ##does not work
+#print '-' * 10
+#for city, abbrev in Cities.items():
+   # print "%s city is abbreviated %s and has Boroughs %s" % (
+       # city, abbrev, Boroughs[abbrev])
+  
+  #print '-' * 10
+#for state, abbrev in states.items():
+   # print "%s state is abbreviated %s and has city %s" % (
+        #state, abbrev, cities[abbrev])
+# now do both at the same time
+#print '-' * 10
+#for city, abbrev in Cities.items():
+   # print "%s Cities is abbreviated %s and has Boroughs %s" % (
+        #Cities, abbrev, Boroughs[abbrev])
+print '-' * 10
+# safely get a abbreviation by state that might not be there
+city = Cities.get('Norwich', None)
+if not city:
+    print "Sorry, no Norwich."
+#NOT WORKING 
+# get a borough with a default value
+borough = Boroughs.get('NW', 'Does Not Exist')
+print "The borough for the city 'NW' is: %s" % borough
